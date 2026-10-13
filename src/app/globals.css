@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #013A8F;
+  
+  --primary: #0153AD;
+  --primary-hover: #013A8F;
+  --secondary: #01B0FD;
+  --navy: #013A8F;
+  --light-cyan: #47D2FD;
+  --light-bg: #EAF8FF;
+  
+  --accent: #01B0FD;
+  --success: #16A34A;
+  --card: #FFFFFF;
+  --dark-text: #013A8F;
+  --gray-text: #475569;
+  --borders: #D8F2FE;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-navy: var(--navy);
+  --color-light-cyan: var(--light-cyan);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-card: var(--card);
+  --color-dark-text: var(--dark-text);
+  --color-gray-text: var(--gray-text);
+  --color-borders: var(--borders);
+  
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-manrope), sans-serif;
+}
+
+/* Base resets & utilities */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--navy);
+  }
+}
+
+/* Glassmorphism utility */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(71, 210, 253, 0.25);
+}
+
+.glassmorphism-dark {
+  background: rgba(1, 58, 143, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EAF8FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #A6E5FD;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #01B0FD;
+}
+
+/* Smooth scroll & anchor scroll offset */
+:root {
+  --navbar-height: 76px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --navbar-height: 76px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section, [id] {
+  scroll-margin-top: calc(var(--navbar-height) + 12px);
+}
+
+/* Form inputs focus styles */
+input, textarea, select {
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #0153AD;
+  box-shadow: 0 0 0 3px rgba(1, 83, 173, 0.2);
+}
